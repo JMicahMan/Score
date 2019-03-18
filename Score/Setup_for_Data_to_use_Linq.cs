@@ -13,14 +13,14 @@ using System.Threading.Tasks;
 namespace GuidedExercise_05
 {
 
-   
-    
+
+
     public partial class Form1 : Form
     {
-          
+
         public static string Filenamecsv = "datadoit.csv";
         public List<Score> PlayerScores = new List<Score>();
-      
+
 
         public Form1()
         {
@@ -34,25 +34,26 @@ namespace GuidedExercise_05
             foreach (var line in playerdata)
             {
                 var entry = line.Split(',');
-                var score = new Score
-                {
-                    levelName = entry[0],
-                    playerName = entry[1],
-                    score = float.Parse(entry[2]),
-                    levelTime = float.Parse(entry[3]),
-                    enemiesKilled = (int) float.Parse(entry[4]),
-                    levelCompleted = float.Parse(entry[5]) > 0 
-                };
+        var score = new Score
+        {
+            levelName = entry[0],
+            playerName = entry[1],
+            score = float.Parse(entry[2]),
+            levelTime = float.Parse(entry[3]),
+            enemiesKilled = (int)float.Parse(entry[4]),
+            levelCompleted = float.Parse(entry[5]) > 0
+        };
 
-                PlayerScores.Add(score);
+        PlayerScores.Add(score);
 
-               playerInfoTextBox.Text += line + Environment.NewLine;
+               playerInfoTextBox.Text += line;
             }
 
-    string text = "players who didn't complete level 1";
+    string text = "";
     var Q1 = PlayerScores.Where(score => score.levelName = "Level1");
-    playerInfoTextBox.Text+= text += Environment.NewLine;
-   
-     }
-    }
-}
+    playerInfoTextBox.Text+= text;
+    foreach(var score in Q1)
+        
+
+        
+    
