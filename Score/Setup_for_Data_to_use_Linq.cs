@@ -1,22 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using System.Linq;
+using System.Threading.Tasks;
 
 
 namespace GuidedExercise_05
 {
 
-    public class Score
-    {
-        public string levelName = "level";
-        public string playerName = "name";
-        public float score = 000;
-        public float levelTime = 0;
-        public float enemiesKilled = 0;
-        public bool levelCompleted = true;
-    }
+   
+    
     public partial class Form1 : Form
     {
 
@@ -29,16 +27,10 @@ namespace GuidedExercise_05
             InitializeComponent();
         }
 
-        private void InitializeComponent()
-        {
-           
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var playerdata = File.ReadAllLines(Filenamecsv);
-
-
+            public static string Filenamecsv = "datadoit.csv";
             foreach (var line in playerdata)
             {
                 var entry = line.Split(',');
@@ -54,8 +46,13 @@ namespace GuidedExercise_05
 
                 PlayerScores.Add(score);
 
-               // playerInfoTextBox.Text += line + Environment.NewLine;
+               playerInfoTextBox.Text += line + Environment.NewLine;
             }
-        }
+
+    string text = "players who didn't complete level 1";
+    var Q1 = PlayerScores.Where(score => score.levelName = "Level1");
+    playerInfoTextBox.Text+= text += Environment.NewLine;
+   
+     }
     }
 }
